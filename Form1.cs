@@ -23,10 +23,7 @@ namespace EmployeeInformationApp
         private void saveButton_Click(object sender, EventArgs e)
         {
            
-            
-            
-          
-           
+   
             if (IsEmailExist(newEmployeeInfo.Email))
             {
                 MessageBox.Show("Email Exist");
@@ -45,19 +42,32 @@ namespace EmployeeInformationApp
                 }
                 else
                 {
-                        newEmployeeInfo.Name = employeeNameTextBox.Text;
-                           newEmployeeInfo.Address = addressTextBox.Text;
-                         newEmployeeInfo.Email = emailTextBox.Text;
-                          newEmployeeInfo.salary = Convert.ToDouble(salaryTextBox.Text);
-                          insertQuery(newEmployeeInfo);
-                          ClearAll();
-                    MessageBox.Show("Saved Successfully");
+                    if (!NullChecker())
+                    {
+                        InitialValueAssign();
+                        insertQuery(newEmployeeInfo);
+                        ClearAll();
+                        MessageBox.Show("Saved Successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("All Information must be filled up");
+                        ClearAll();
+                    }
 
                 }
                 LoadEmployeeInformation();
             }
 
 
+        }
+
+        private void InitialValueAssign()
+        {
+            newEmployeeInfo.Name = employeeNameTextBox.Text;
+            newEmployeeInfo.Address = addressTextBox.Text;
+            newEmployeeInfo.Email = emailTextBox.Text;
+            newEmployeeInfo.salary = Convert.ToDouble(salaryTextBox.Text);
         }
 
         private void insertQuery(Employee getEmployeeInfo)
@@ -78,6 +88,7 @@ namespace EmployeeInformationApp
         public void ClearAll()
         {
             employeeNameTextBox.Text = addressTextBox.Text = emailTextBox.Text = salaryTextBox.Text = null;
+            newEmployeeInfo=new Employee();
         }
 
         private bool IsEmailExist(string mailCheck)
@@ -105,7 +116,15 @@ namespace EmployeeInformationApp
             LoadEmployeeInformation();
         }
 
-    
+        private bool NullChecker()
+        {
+            if (employeeNameTextBox.Text == null || addressTextBox.Text == null || emailTextBox.Text == null ||
+                salaryTextBox.Text == null)
+            {
+                return false;
+            }
+            return true;
+        }
 
         private void LoadEmployeeInformation()
         {
@@ -165,5 +184,37 @@ namespace EmployeeInformationApp
             update = true;
             return newInfo;
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+           
+                InitialValueAssign();
+                DeleteEmployeeInformation();
+                
+                ClearAll();
+                MessageBox.Show("Information Deleted Successfully");
+            LoadEmployeeInformation();
+            update = false;
+            ClearAll();
+            saveButton.Text = "Save";
+
+
+
+        }
+
+        private void DeleteEmployeeInformation()
+        {
+            
+            string connectionString = @"SERVER=.\SQLEXPRESS;DATABASE= EmployeeInfoDB;INTEGRATED SECURITY=TRUE";
+           SqlConnection con = new SqlConnection(connectionString);
+            string checkQuery = "DELETE FROM EmployeeInformationTable WHERE Name='" + newEmployeeInfo.Name+ "' AND Address='"+newEmployeeInfo.Address+"' AND Email='"+newEmployeeInfo.Email+"'";
+            SqlCommand newCmd = new SqlCommand(checkQuery, con);
+            con.Open();
+            int i1 = newCmd.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+       
     }
 }

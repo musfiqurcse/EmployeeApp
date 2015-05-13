@@ -44,12 +44,14 @@
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeInformationDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.deleteButton);
             this.groupBox1.Controls.Add(this.saveButton);
             this.groupBox1.Controls.Add(this.salaryTextBox);
             this.groupBox1.Controls.Add(this.label3);
@@ -74,7 +76,7 @@
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
-            //this.saveButton.Click += new System.EventHandler((sender, e) => this.saveButton_Click(sender, e));
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // salaryTextBox
             // 
@@ -153,6 +155,7 @@
             this.employeeInformationDataGridView.Name = "employeeInformationDataGridView";
             this.employeeInformationDataGridView.Size = new System.Drawing.Size(545, 322);
             this.employeeInformationDataGridView.TabIndex = 1;
+//            this.employeeInformationDataGridView.Click += new System.EventHandler(this.employeeInformationDataGridView_Click);
             this.employeeInformationDataGridView.DoubleClick += new System.EventHandler(this.employeeInformationDataGridView_DoubleClick);
             // 
             // employeeId
@@ -179,6 +182,16 @@
             // 
             this.salary.HeaderText = "Salary";
             this.salary.Name = "salary";
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(255, 269);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 31);
+            this.deleteButton.TabIndex = 9;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // Form1
             // 
@@ -215,6 +228,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn salary;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
 
