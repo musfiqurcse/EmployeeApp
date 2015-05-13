@@ -1,0 +1,9 @@
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\bin\Debug\EmployeeInformationApp.exe.config
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\bin\Debug\EmployeeInformationApp.exe
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\bin\Debug\EmployeeInformationApp.pdb
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.csprojResolveAssemblyReference.cache
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.Form1.resources
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.Properties.Resources.resources
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.csproj.GenerateResource.Cache
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.exe
+E:\Work Batch 04\Shibl\13.5.2015\EmployeeInformationApp\obj\Debug\EmployeeInformationApp.pdb
