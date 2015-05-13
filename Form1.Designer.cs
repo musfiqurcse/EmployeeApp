@@ -74,7 +74,7 @@
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler((sender, e) => this.saveButton_Click(sender, e));
+            //this.saveButton.Click += new System.EventHandler((sender, e) => this.saveButton_Click(sender, e));
             // 
             // salaryTextBox
             // 
